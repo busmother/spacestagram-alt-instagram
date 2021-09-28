@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ImageCard from './Components/ImageCard.js'
 
 class SearchContainer extends Component {
     constructor() {
@@ -26,6 +27,23 @@ class SearchContainer extends Component {
 
     componentDidMount() {
         this.fetchImages()
+    }
+
+    render(){
+        return (
+            <div className = "grid">
+                {this.state.images.map(
+                    image => <ImageCard
+                    key={image.url}
+                    src={image.url}
+                    title={image.title}
+                    copyright={image.copyright}
+                    explanation={image.copyright}
+                    date={image.date} 
+                    />
+                )}
+            </div>
+        )
     }
 }
 
