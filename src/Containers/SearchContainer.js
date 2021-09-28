@@ -9,6 +9,18 @@ class SearchContainer extends Component {
         }
     }
 
+    sortByDate = (images, date) => {
+        let sortOrder = 1;
+        if(images[1] === "-"){
+            sortOrder = -1;
+            images = images.substr(1);
+        }
+        return function (a,b) {
+            let result = (a[images][date] < b[images][date] ? -1 : (a[images][date] > b[images][date]) ? 1 : 0)
+            return result * sortOrder
+        }
+    }
+
     fetchImages = () => {
         fetch(`https://api.nasa.gov/planetary/apod?api_key=VodNvDXzlgg3cT0dgOn9JuFzkcQLdDhEhfbwinEI&count=10`)
         .then(response => {
@@ -17,7 +29,7 @@ class SearchContainer extends Component {
             }
             return response.json()
             .then(allImages => {
-                this.setState({ images: allImages });
+                this.setState({ images: this.sortByDate(allImages) });
             })
             .catch(err => { 
                 throw Error(err.message);
