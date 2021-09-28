@@ -28,3 +28,5 @@ class SearchContainer extends Component {
         this.fetchImages()
     }
 }
+
+export default SearchContainer

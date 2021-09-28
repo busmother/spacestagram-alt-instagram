@@ -1,9 +1,10 @@
 import './App.css';
+import SearchContainer from './containers/SearchContainer'
 
 function App() {
   return (
     <div>
-      Hello and welcome to space
+      <SearchContainer />
     </div>
   );
 }
