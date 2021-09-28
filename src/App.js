@@ -1,5 +1,5 @@
 import './App.css';
-import SearchContainer from './containers/SearchContainer'
+import SearchContainer from './Containers/SearchContainer'
 
 function App() {
   return (

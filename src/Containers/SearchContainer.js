@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import ImageCard from './Components/ImageCard.js'
+import ImageCard from '../Components/ImageCard.js'
 
 class SearchContainer extends Component {
     constructor() {
         super();
         this.state = {
-            images = []
+            images: []
         }
     }
 
